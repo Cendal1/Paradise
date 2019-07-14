@@ -21,7 +21,7 @@
 
 /obj/mecha/working/ripley/Destroy()
 	while(damage_absorption["brute"] < 0.6)
-		new /obj/item/asteroid/goliath_hide(loc)
+		new /obj/item/stack/sheet/animalhide/goliath_hide(loc)
 		damage_absorption["brute"] = damage_absorption["brute"] + 0.1 //If a goliath-plated ripley gets killed, all the plates drop
 	for(var/atom/movable/A in cargo)
 		A.forceMove(loc)
@@ -174,7 +174,7 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	var/pressure = environment.return_pressure()
 
-	if(pressure < 20)
+	if(pressure < 40)
 		step_in = 3
 		for(var/obj/item/mecha_parts/mecha_equipment/drill/drill in equipment)
 			drill.equip_cooldown = initial(drill.equip_cooldown)/2
